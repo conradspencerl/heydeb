@@ -385,6 +385,35 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
+        .waitlist-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .waitlist-form input[type="email"] {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .waitlist-form input[type="email"]:focus {
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .waitlist-form .btn {
+            padding: 16px 32px;
+            white-space: nowrap;
+        }
+
         /* Footer */
         footer {
             padding: 60px 0;
@@ -477,7 +506,7 @@
             <h1>Meet Deb, Your <span>AI HR Admin</span></h1>
             <p>Automate your busywork. Deb handles scheduling, email triage, document processing, and admin tasks so you can focus on what matters.</p>
             <div class="hero-buttons">
-                <a href="#cta" class="btn btn-primary">Start Free Trial</a>
+                <a href="#cta" class="btn btn-primary">Join Waitlist</a>
                 <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
             </div>
             <div class="hero-visual">
@@ -664,8 +693,14 @@
         <div class="container">
             <div class="cta-box">
                 <h2>Ready to Meet Deb?</h2>
-                <p>Join thousands of professionals who've reclaimed hours every week. Start your free trial today.</p>
-                <a href="#" class="btn">Start Free Trial</a>
+                <p>Be the first to know when we launch. Join the waitlist for early access.</p>
+                <form action="https://formsubmit.co/conradspencerl@gmail.com" method="POST" class="waitlist-form">
+                    <input type="hidden" name="_subject" value="New Waitlist Signup - HeyDeb.ai">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn">Join Waitlist</button>
+                </form>
             </div>
         </div>
     </section>
