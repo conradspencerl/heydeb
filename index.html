@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HeyDeb.ai - Your AI-powered office admin assistant. Automate scheduling, email management, document processing, and more.">
+    <meta name="keywords" content="AI assistant, office automation, virtual admin, scheduling, email management">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://heydeb.ai/">
+    <meta property="og:title" content="HeyDeb.ai - AI Office Admin Services">
+    <meta property="og:description" content="Your AI-powered office admin assistant. Automate scheduling, email management, and document processing.">
+    <meta property="og:image" content="https://heydeb.ai/og-image.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeyDeb.ai - AI Office Admin Services">
+    <meta name="twitter:description" content="Your AI-powered office admin assistant. Automate scheduling, email management, and document processing.">
+
+    <title>HeyDeb.ai - AI Office Admin Services</title>
+
+    <link rel="canonical" href="https://heydeb.ai/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            margin-top: 60px;
+            background: var(--bg-alt);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .hero-visual img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .feature {
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .feature:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: var(--text-light);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-align: left;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 24px;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            border-radius: 24px;
+            padding: 80px 40px;
+            color: white;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-box .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-box .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta-box {
+                padding: 60px 24px;
+            }
+
+            .cta-box h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">
+                <svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1"/>
+                            <stop offset="100%" style="stop-color:#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#logoGrad)"/>
+                    <path d="M8 10h8c3.3 0 6 2.7 6 6s-2.7 6-6 6H8V10z" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="22" cy="22" r="4" fill="white"/>
+                    <circle cx="22" cy="22" r="2" fill="url(#logoGrad)"/>
+                    <text x="40" y="22" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#6366f1">HeyDeb<tspan fill="#1f2937">.ai</tspan></text>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="#cta" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <h1>Meet Deb, Your <span>AI Office Admin</span></h1>
+            <p>Automate your busywork. Deb handles scheduling, email triage, document processing, and admin tasks so you can focus on what matters.</p>
+            <div class="hero-buttons">
+                <a href="#cta" class="btn btn-primary">Start Free Trial</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+            <div class="hero-visual">
+                <div style="background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                    [Product Screenshot / Demo Video]
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get Deb up and running in minutes, not days. No complex setup required.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Connect Your Tools</h3>
+                    <p>Link your email, calendar, and document tools. Deb integrates with Google Workspace, Microsoft 365, Slack, and more.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Preferences</h3>
+                    <p>Tell Deb how you like things done. Set rules for scheduling, email priorities, and task handling.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Let Deb Handle It</h3>
+                    <p>Sit back while Deb manages your admin work. Review summaries and approve actions with a single click.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything You Need</h2>
+                <p>Deb comes packed with features to handle your entire admin workflow.</p>
+            </div>
+            <div class="features-grid">
+                <article class="feature">
+                    <div class="feature-icon">📅</div>
+                    <h3>Smart Scheduling</h3>
+                    <p>Deb coordinates meetings, finds optimal times across time zones, and sends calendar invites automatically.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Triage</h3>
+                    <p>Automatically sort, prioritize, and draft responses to emails. Deb learns your tone and preferences over time.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">📄</div>
+                    <h3>Document Processing</h3>
+                    <p>Extract data from invoices, contracts, and forms. Deb organizes files and keeps everything searchable.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Task Management</h3>
+                    <p>Track action items, set reminders, and get daily briefings on what needs your attention.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>SOC 2 compliant with end-to-end encryption. Your data stays private and secure.</p>
+                </article>
+                <article class="feature">
+                    <div class="feature-icon">🔗</div>
+                    <h3>50+ Integrations</h3>
+                    <p>Connect with the tools you already use. Seamless integration with popular business apps.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Got questions? We've got answers.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does Deb learn my preferences?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Deb uses machine learning to analyze your past actions, writing style, and explicit preferences you set during onboarding. The more you use Deb, the better it understands how you like things done. You can also provide feedback on any action to help Deb improve.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my data secure?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. We're SOC 2 Type II certified and use end-to-end encryption for all data. Your information is never used to train our models, and you can delete your data at any time. We also offer on-premise deployment for enterprise customers.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What tools does Deb integrate with?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Deb integrates with 50+ popular business tools including Google Workspace, Microsoft 365, Slack, Notion, Salesforce, HubSpot, Zoom, and many more. We're constantly adding new integrations based on customer requests.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can Deb take actions without my approval?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            You're always in control. You can set Deb to require approval for all actions, only certain types of actions, or run fully autonomously for routine tasks. Most users start with approval mode and gradually give Deb more autonomy as trust builds.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How much does HeyDeb.ai cost?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We offer flexible pricing starting at $49/month for individuals. Team and enterprise plans are available with volume discounts. All plans include a 14-day free trial with no credit card required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to Meet Deb?</h2>
+                <p>Join thousands of professionals who've reclaimed hours every week. Start your free trial today.</p>
+                <a href="#" class="btn">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="/" class="logo">
+                <svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#6366f1"/>
+                            <stop offset="100%" style="stop-color:#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="32" height="32" rx="8" fill="url(#logoGrad)"/>
+                    <path d="M8 10h8c3.3 0 6 2.7 6 6s-2.7 6-6 6H8V10z" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="22" cy="22" r="4" fill="white"/>
+                    <circle cx="22" cy="22" r="2" fill="url(#logoGrad)"/>
+                    <text x="40" y="22" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#6366f1">HeyDeb<tspan fill="#1f2937">.ai</tspan></text>
+                </svg>
+            </a>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="footer-copy">&copy; 2025 HeyDeb.ai. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAQ Accordion Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "HeyDeb.ai",
+        "description": "AI-powered office admin assistant that automates scheduling, email management, and document processing.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "49",
+            "priceCurrency": "USD",
+            "priceValidUntil": "2026-12-31"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        }
+    }
+    </script>
+</body>
+</html>
